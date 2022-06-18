@@ -1,16 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-switch',
   templateUrl: './switch.component.html',
-  styles: [
-  ]
+  styles: [],
 })
-export class SwitchComponent implements OnInit {
+export class SwitchComponent {
+  formulario: FormGroup = this.fb.group({
+    genero: ['F', Validators.required],
+    notificaciones: [true, Validators.required],
+  });
 
-  constructor() { }
+  persona = {
+    genero: 'F',
+    notificationes: true,
+  };
 
-  ngOnInit(): void {
-  }
-
+  constructor(private fb: FormBuilder) {}
 }
