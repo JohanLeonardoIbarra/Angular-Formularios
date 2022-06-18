@@ -27,6 +27,16 @@ export class DinamicosComponent {
     ],
   };
 
+  nuevoJuego: string = '';
+
+  agregarJuego() {
+    const nuevoFavorito: Favorito = {
+      id: this.persona.favoritos.length + 1,
+      nombre: this.nuevoJuego,
+    };
+    this.persona.favoritos.push({ ...nuevoFavorito });
+  }
+
   guardar() {
     console.log('Formulario posteado');
   }

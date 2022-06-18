@@ -16,8 +16,9 @@
     <div class="mb-3 row">
         <div class="col-sm-9">
             <div class="input-group">
-                <input type="text" class="form-control" ngModel name="nombre" required placeholder="Agregar Favorito">
-                <button class="btn btn-outline-primary" type="button">
+                <input type="text" class="form-control" (keyup.enter)="agregarJuego()" [(ngModel)]="nuevoJuego"
+                    name="nuevo" required placeholder="Agregar Favorito">
+                <button class="btn btn-outline-primary" type="button" (click)="agregarJuego()">
                     Agregar
                 </button>
             </div>
@@ -31,7 +32,7 @@
             <div class="input-group" *ngFor="let juego of persona.favoritos; let i = index">
                 <input [(ngModel)]="juego.nombre" name="favorito_{{ i }}" required type="text"
                     class="form-control mb-1">
-                <button class="btn btn-outline-danger mb-1" (click)="eliminar( i )">Eliminar</button>
+                <button class="btn btn-outline-danger mb-1" type="button" (click)="eliminar( i )">Eliminar</button>
             </div>
         </div>
     </div>
